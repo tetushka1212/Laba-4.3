@@ -2,10 +2,24 @@
 //
 
 #include <iostream>
+#include "Container.h"
+
+using namespace std;
 
 int main()
 {
-    << "Hello World!\n";
+    int arr[4]{1,2,5,4};
+    Container b(arr, size(arr));
+    Container c(4);
+    b.Add(3);
+    b.Remove(5);
+    b.Print();
+    Container a(3, 1);
+    c = b;
+    b.Print();
+    a.Print();
+    c.Print();
+    return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="Laba 4.3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Container.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
