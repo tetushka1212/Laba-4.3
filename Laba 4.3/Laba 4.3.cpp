@@ -9,16 +9,18 @@ using namespace std;
 int main()
 {
     int arr[4]{1,2,5,4};
+    int arr2[3]{ 3,12,45 };
     Container b(arr, size(arr));
-    Container c(4);
     b.Add(3);
     b.Remove(5);
     b.Print();
-    Container a(3, 1);
-    c = b;
-    b.Print();
+    
+    Container a(arr2, size(arr2));
     a.Print();
-    c.Print();
+    a.Merge(b).Print();
+    a.Difference(b).Print();
+    a.Intersection(b).Print();
+    
     return 0;
 }
 

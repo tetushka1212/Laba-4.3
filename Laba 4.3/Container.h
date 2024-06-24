@@ -31,7 +31,6 @@ public:
 	Container(int other[], size_t length)
 	{ 
 		Size = length;
-		cout << Size << "Size of" << endl;
 		data = new int[Size];
 		for (int i = 0; i < Size; i++)
 		{
@@ -50,6 +49,26 @@ public:
 	void ReSize(int new_size);
 	void Remove(int element);
 	Container Merge(Container& other);
+	Container Difference(Container& other) {
+		Container result(*this);
+
+		for (size_t i = 0; i < other.Size; ++i) {
+			result.Remove(other.data[i]);
+		}
+
+		return result;
+	}
+	Container Intersection(Container& other) {
+		Container result;
+
+		for (size_t i = 0; i < Size; ++i) {
+			if (other.Contains(data[i])) {
+				result.Add(data[i]);
+			}
+		}
+
+		return result;
+	}
 	~Container() { delete[] data; }
 };
 

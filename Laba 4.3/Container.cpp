@@ -11,11 +11,13 @@ void Container::Print()
 
 void Container::Add(int element)
 {
-	cout << "-------"<<endl;
-	if (Contains(element)) {
-		ReSize(Size + 1);
-		data[Size - 1] = element;
-	}
+	int* newData = new int[Size+1];
+	for (size_t i = 0; i < Size; i++) { newData[i] = data[i]; }
+	delete[] data;
+	data = newData;
+	data[Size ] = element;
+	this->Size++;
+	
 }
 
 bool Container::Contains(int element)
@@ -60,8 +62,12 @@ void Container::Remove(int element)
 
 Container Container::Merge(Container& other)
 {
-	for (int i = 0; i < other.Size; i++) {
-		this->Add(other.data[i]);
-	}
-	return
+	Container result(*this);
+		for (size_t i = 0; i < other.Size; ++i) {
+			if (!result.Contains(other.data[i])) {
+				result.Add(other.data[i]);
+			}
+		}
+
+	return result;
 }
